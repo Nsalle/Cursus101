@@ -1,0 +1,6 @@
+#!/bin/bash
+# 20. List all existing users on the VM
+
+cat /etc/passwd | cut -d : -f1
+
+# or getent compgen -u

@@ -1,0 +1,7 @@
+# 9. Find the external IP of 42.fr
+
+#163.172.250.13
+
+
+# You get this result by pinging 42.fr and taking the only information you need for your answer:
+# ping -c1 42.fr | grep from | cut -d ' ' -f 4 | tr -d ':'

@@ -1,0 +1,29 @@
+# 11. Use the output of the previous command to find the name and IP address of the
+# device that makes the link between you (local network) and the outside world
+
+While running traceroute slash16.org or traceroute anyotheradress you get a result looking like this:
+
+traceroute: Warning: slash16.org has multiple addresses; using 52.222.149.15
+traceroute to slash16.org (52.222.149.15), 64 hops max, 52 byte packets
+ 1  10.2.1.254 (10.2.1.254)  0.827 ms  0.422 ms  0.398 ms
+ 2  10.60.1.1 (10.60.1.1)  0.285 ms  0.225 ms  0.209 ms
+ 3  ns.auvergnerhonealpes.fr (185.15.27.33)  0.561 ms  0.546 ms  0.516 ms
+ 4  192.168.255.1 (192.168.255.1)  0.531 ms  0.482 ms  0.505 ms
+ 5  100.64.40.1 (100.64.40.1)  0.969 ms  0.945 ms  0.962 ms
+ 6  xe-0-0-2.ter1.dc4d.lyn.core.as8218.eu (46.255.177.232)  1.017 ms  1.263 ms  1.044 ms
+ 7  xe-0-1-0.tcr1.sfr.lyn.core.as8218.eu (83.167.56.148)  1.304 ms  9.339 ms  6.996 ms
+ 8  ae8.tcr1.rb.par.core.as8218.eu (83.167.55.12)  7.935 ms  7.939 ms  7.766 ms
+ 9  et-1-0-0.tcr2.rb.par.core.as8218.eu (83.167.55.149)  7.849 ms  7.914 ms
+    ae3.tcr1.th2.par.core.as8218.eu (83.167.56.221)  8.625 ms
+10  et-8-0-0.tcr2.th2.par.core.as8218.eu (83.167.55.163)  8.161 ms  8.059 ms
+    et-1-0-0.tcr2.th2.par.core.as8218.eu (83.167.55.47)  8.186 ms
+11  ae7.tcr1.itx.fra.core.as8218.eu (83.167.56.151)  17.087 ms  17.212 ms  17.143 ms
+12  * * *
+13  54.239.107.226 (54.239.107.226)  17.297 ms
+[...]
+
+The first two lines are local devices, then on the third line our adress in transalated in: 
+    3  ns.auvergnerhonealpes.fr (185.15.27.33)
+This adress is the one we use in the "outside world", and it is given by the device of the line juste before:
+    2  10.60.1.1 (10.60.1.1)
+This is our NAT server (network adress translation), it translates our local adress to the public one.

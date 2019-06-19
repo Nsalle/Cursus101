@@ -1,0 +1,6 @@
+#!/bin/bash
+# 2. What command can you use to rename your system?
+
+hostname 'chosenname'
+
+# You can check it has been changed by using the hostname command alone.

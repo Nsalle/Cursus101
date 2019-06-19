@@ -1,0 +1,7 @@
+# 23. Explain how connect yourself as new user. (With graphic session and ssh session)
+
+As graphical sessions, like we did before:
+ssh -p 1234 otheruser@127.0.0.1
+
+For the ssh session:
+su otheruser

@@ -1,0 +1,8 @@
+# 6. Get the complete path of the file that contains the IP address of the DNS server
+# you’re using
+
+The complete path is /etc/resolv.conf
+If you use cat on this file you will see some lines where you will find as an example:
+
+domain le-101.fr
+nameserver 10.51.1.5

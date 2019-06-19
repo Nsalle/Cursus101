@@ -1,0 +1,5 @@
+#!/bin/bash
+# 1. In what file can you find the installed version of your Debian?
+
+The installed version is found in /etc/debian_version
+As shown, mine is 9.9

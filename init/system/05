@@ -1,0 +1,4 @@
+#!/bin/bash
+# 5. Name the command that determines the state of the SSH service
+
+/etc/init.d/ssh status

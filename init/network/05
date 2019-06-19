@@ -1,0 +1,6 @@
+# 5. Identify the IP address of the DNS that responds to the following url: slash16.org
+
+nslookup slash16.org | grep Server | cut -d ':' -f 2 | tr -d '\t'
+
+# I used ':' as a cut delimiter because the whitespace wouldn't work,
+# so i also had to add the "tr -d" to delete the spaces.
