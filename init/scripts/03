@@ -1,1 +1,47 @@
 #!/bin/bash
+
+choice='8'
+if [ $# == 1 ];
+then
+	if [ $1 == -c ];
+	then
+		choice="1"
+	fi
+fi
+
+if [ $choice == '8' ];
+then
+	menuloop=true;
+	while [ 1 ]; do
+	clear
+	echo ''
+	echo "				----MENU----				"
+	echo ''
+	echo 'Type the number, or the name of the script you want to execute..'
+	echo ''
+	echo "1. Clear (cache)		2. TBD"
+	echo "3. TBD				3. TBD"
+	echo "0. Exit"
+	echo ''
+	read choice
+
+
+if [[ $choice == "1" ]] || [[ $choice == "Clear" ]];
+then
+	if $(ls /etc | grep -q debian_version);
+	then
+		echo This command will not work on a debian system, it is supposed to clean you session on a MAC at school
+	else
+		# Integrer ici le script de nettoyage de session
+		echo Cache is cleared
+	fi
+	read
+elif [[ $choice = "0" ]];
+then
+	exit
+else
+	echo "Invalid Input.."
+	read
+fi
+choice='8'
+done
