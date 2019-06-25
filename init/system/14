@@ -1,6 +1,6 @@
 #!/bin/bash
 # 14. Run the ‘tail -f /var/log/syslog‘ command in background
 
-nohup tail -f /var/log/syslog &>/dev/null &
+tail -f /var/log/syslog &>/dev/null &
 
 # nohup allows us to run a command in background
