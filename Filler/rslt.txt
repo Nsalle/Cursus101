@@ -1,0 +1,13 @@
+*************************************
+******** FILLER_TEST RESULTS ********
+*************************************
+
+*** hcao VS nsalle - map00 ***
+players/nsalle.filler won - 39AGAINST117
+players/nsalle.filler won - 43AGAINST116
+players/nsalle.filler won - 36AGAINST119
+players/nsalle.filler won - 35AGAINST123
+players/nsalle.filler won - 8AGAINST8
+
+[mhcao       0/5[m
+[1;32mnsalle     5/5[m
