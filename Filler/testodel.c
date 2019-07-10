@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/24 17:13:54 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/08 14:30:42 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/10 17:12:19 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,7 +41,7 @@ void	test_printpiece(t_piece *piece)
 		j = 0;
 		while (j < piece->width)
 		{
-			printf("%d\t", piece->piece[i][j]);
+			printf("%d\t", piece->map[i][j]);
 			j++;
 		}
 		i++;

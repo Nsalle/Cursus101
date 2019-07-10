@@ -6,7 +6,7 @@
 #    By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/06/22 16:46:17 by nsalle       #+#   ##    ##    #+#        #
-#    Updated: 2019/07/08 11:34:48 by nsalle      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/07/10 17:28:10 by nsalle      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -20,7 +20,9 @@ SRC 	= 	main.c			\
 			testodel.c		\
 			place_piece.c	\
 			checkaround.c	\
-			heatmap.c
+			heatmap.c		\
+			fl_free.c		\
+			fl_parsing.c
 
 OBJ		=	$(SRC:.c=.o)
 

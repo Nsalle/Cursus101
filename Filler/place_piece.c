@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/24 19:16:24 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/09 13:46:33 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/10 18:43:27 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,59 +30,58 @@ int		fl_checkscore(t_init *info, t_piece *piece, int i, int j)
 	return (1);
 }
 
-int		fl_try(int	i, int j, int **map, t_piece piece, t_init *info)
+void	fl_try(int i, int j, t_piece *piece, t_init *fl)
 {
 	int	x;
 	int	y;
-	int	countme;
 
 	x = 0;
-	piece.score = 0;
-	countme = 0;
-	while (x < piece.height)
+	while (x < piece->height)
 	{
 		y = 0;
-		while (y < piece.width)
+		while (y < piece->width)
 		{
-			if (map[i + x][j + y] == info->me && piece.piece[x][y] == info->me)
-				countme++;
-			if (countme >= 2)
-				return (0);
-			if (map[i + x][j + y] == info->enemy && piece.piece[x][y] == info->me)
-				return (0);
-			if (piece.piece[x][y] == info->me && info->heatmap[i + x][j + y] >= 0)
+			if (fl->map[i + x][j + y] == fl->me && piece->map[x][y] == fl->me)
+				piece->countme++;
+			if (fl->map[i + x][j + y] == fl->en && piece->map[x][y] == fl->me)
+				return ;
+			if (piece->map[x][y] == fl->me && fl->heatmap[i + x][j + y] >= 0)
 			{
-				piece.score += info->heatmap[i + x][j + y];
-				if (info->heatmap[i + x][j + y] == 0)
-					piece.score += 99;
+				piece->score += fl->heatmap[i + x][j + y];
+				if (fl->heatmap[i + x][j + y] == 0)
+					piece->score += 99;
 			}
 			y++;
 		}
 		x++;
 	}
-	if (countme == 1 && fl_checkscore(info, &piece, i, j))
-		return (1);
-	return (0);
+	if (piece->countme == 1)
+		fl_checkscore(fl, piece, i, j);
 }
 
-void	fl_place(int **map, t_init *info, t_piece *piece)
+void	fl_place(t_init *fl, t_piece *piece)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	info->end = 0;
-	while (i < info->height)
+	fl->end = 0;
+	while (i < fl->height)
 	{
 		j = 0;
-		while (j < info->width)
+		while (j < fl->width)
 		{
-			if (i + piece->height <= info->height && j + piece->width <= info->width)
-				fl_try(i, j, map, *piece, info);
+			if (i + piece->height <= fl->height
+				&& j + piece->width <= fl->width)
+			{
+				piece->score = 0;
+				piece->countme = 0;
+				fl_try(i, j, piece, fl);
+			}
 			j++;
 		}
 		i++;
 	}
-	if (info->bestscore == 9999)
-		info->end = 1;
+	if (fl->bestscore == 9999)
+		fl->end = 1;
 }
