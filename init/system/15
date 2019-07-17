@@ -1,4 +1,0 @@
-#!/bin/bash
-# 15. Find the command that kills the background command’s process
-
-pkill tail

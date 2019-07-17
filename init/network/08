@@ -1,5 +1,0 @@
-# 8. Find the provider of slash16.org
-
-The provider is AWS (Amazon Web Service)
-You can ping -c1 slashs16.org to find the IP 13.249.12.197
-Then whois 13.249.12.197 to find the provider.

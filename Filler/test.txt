@@ -1,1 +1,0 @@
-make && mv nsalle.filler players &&  ./filler_vm -f maps/map01 -p2 players/nsalle.filler -p1 players/carli.filler | ../VisuFiller/show.filler -v 10 

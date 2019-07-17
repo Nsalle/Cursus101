@@ -1,9 +1,0 @@
-#!/bin/bash
-# 19. List all services which are started at boot time and name this kind of services
-
-systemctl list-units --type service --all
-
-#Those are daemons
-
-# It lists all services which are started at boot time wherever they are still active or not
-# You can remove the --all of the command to show only those that are still active

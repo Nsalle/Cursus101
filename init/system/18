@@ -1,6 +1,0 @@
-#!/bin/bash
-# 18. Find the command that kills ssh service
-
-systemctl stop ssh
-
-# or /etc/init.d/ssh stop

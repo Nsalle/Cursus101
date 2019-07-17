@@ -1,6 +1,0 @@
-#!/bin/bash
-# 21. List all real users on the VM
-
-getent passwd | grep "x:1...:" | cut -d : -f 1
-
-# Will work for the 1000 first users, replace the 1 ("x:*...:") for next thousands

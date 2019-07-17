@@ -1,6 +1,0 @@
-#!/bin/bash
-# 22. Find the command that add a new local user
-
-# In root
-
-sudo adduser <username>

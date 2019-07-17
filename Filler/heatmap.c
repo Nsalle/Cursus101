@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/08 11:00:41 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/10 19:17:04 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/11 20:20:47 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -77,7 +77,8 @@ void	do_real_hmap(t_init *info)
 			y = 0;
 			while (y < info->width)
 			{
-				if (info->heatmap[x][y] == 0 && check_around_hmap(info, x, y, i))
+				if (info->heatmap[x][y] == 0
+					&& check_around_hmap(info, x, y, i))
 					info->heatmap[x][y] = i + 1;
 				y++;
 			}
@@ -85,7 +86,6 @@ void	do_real_hmap(t_init *info)
 		}
 		i++;
 	}
-	//test_printheatmap(info, info->heatmap);
 }
 
 void	init_heat_map(t_init *info)
@@ -99,7 +99,8 @@ void	init_heat_map(t_init *info)
 		y = 0;
 		while (y < info->width)
 		{
-			if (info->heatmap[x][y] == 0 && check_around_map(info, x, y, info->en))
+			if (info->heatmap[x][y] == 0
+			&& check_around_map(info, x, y, info->en))
 				info->heatmap[x][y] = 1;
 			y++;
 		}

@@ -1,9 +1,0 @@
-# 16. Find the service which makes it possible to run specific tasks following a regular
-# schedule
-
-The service to run tasks following a schedule is cron
-You can schedule by using crontab, example:
-
-crontab -e (choose an editor to write you cron entry)
-minut hour * * * /anyscript.sh
-This will run the anyscript.sh everyday at hour:minut

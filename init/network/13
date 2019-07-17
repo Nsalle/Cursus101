@@ -1,7 +1,0 @@
-# 13. Thanks to the previous question and the reverse DNS find the name of your host
-
-dig -x 10.2.4.2 +noall +answer | grep 101.fr | awk '{print $5}' | sed 's/.$//' 
-
-# -x option is supplied to indicate a reverse lookup
-# noall and then answer to remove all informations, then show only what we need.
-# I then used awk to print only the name of the host cause cut wouldn't work whith the whitespace delimiter.

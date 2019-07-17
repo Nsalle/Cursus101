@@ -1,3 +1,0 @@
-# 4. Identify the default gateway in the routing table
-
-route -n get default | grep gateway | cut -d ' ' -f6

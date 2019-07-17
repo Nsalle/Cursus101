@@ -1,4 +1,0 @@
-#!/bin/bash
-# 4. What command gives you the time since your system was last booted?
-
-uptime
