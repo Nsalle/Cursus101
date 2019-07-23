@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/06/24 19:16:24 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/17 03:03:06 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/22 22:15:13 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,33 +30,32 @@ int		fl_checkscore(t_init *info, t_piece *piece, int i, int j)
 	return (1);
 }
 
-void	fl_try(int i, int j, t_piece *piece, t_init *fl)
+int		fl_try(int i, int j, t_piece *p, t_init *fl)
 {
 	int	x;
 	int	y;
 
-	x = piece->minh;
-	while (x < piece->height)
+	x = p->minh;
+	while (x < p->height)
 	{
-		y = piece->minw;
-		while (y < piece->width)
+		y = p->minw;
+		while (y < p->width)
 		{
-			if (fl->map[i + x - piece->minh][j + y - piece->minw] == fl->me && piece->map[x][y] == fl->me)
-				piece->countme++;
-			if (fl->map[i + x - piece->minh][j + y - piece->minw] == fl->en && piece->map[x][y] == fl->me)
-				return ;
-			if (piece->map[x][y] == fl->me && fl->heatmap[i 	][j + y - piece->minw] >= 0)
+			if (p->map[x][y] == fl->me)
 			{
-				piece->score += fl->heatmap[i + x- piece->minh][j + y - piece->minw];
-				if (fl->heatmap[i + x - piece->minh][j + y- piece->minw] == 0)
-					piece->score += 99;
+				if (fl->map[i + x - p->minh][j + y - p->minw] == fl->me)
+					p->countme++;
+				if (fl->map[i + x - p->minh][j + y - p->minw] == fl->en)
+					return (-1);
+				if (fl->heatmap[i + x - p->minh][j + y - p->minw] >= 0)
+					p->score += (p->score = fl->heatmap[i + x - p->minh]\
+					[j + y - p->minw]) > 0 ? p->score : 99;
 			}
 			y++;
 		}
 		x++;
 	}
-	if (piece->countme == 1)
-		fl_checkscore(fl, piece, i, j);
+	return (1);
 }
 
 void	fl_place(t_init *fl, t_piece *piece)
@@ -76,7 +75,8 @@ void	fl_place(t_init *fl, t_piece *piece)
 			{
 				piece->score = 0;
 				piece->countme = 0;
-				fl_try(i, j, piece, fl);
+				if (fl_try(i, j, piece, fl) == 1 && piece->countme == 1)
+					fl_checkscore(fl, piece, i, j);
 			}
 			j++;
 		}
