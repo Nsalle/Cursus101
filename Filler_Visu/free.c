@@ -1,24 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   print2.c                                         .::    .:/ .      .::   */
+/*   free.c                                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/07/17 02:36:38 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/22 19:51:46 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/07/23 20:34:54 by nsalle       #+#   ##    ##    #+#       */
+/*   Updated: 2019/07/23 22:07:19 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "visu.h"
 
-void	print_winner(t_info *game)
+void	emergency_free(int i, t_info *game)
 {
-	if (game->p1placed > game->p2placed)
-		ft_printf("\n\t{UND}{BLUE}{BOLD}%s WINS !{END}\n", game->p1name);
-	else if (game->p2placed > game->p1placed)
-		ft_printf("\n\t{UND}{RED}{BOLD}%s WINS !{END}\n", game->p2name);
-	else
-		ft_printf("\n\t{BOLD}{BLUE}W{RED}T{BLUE}F {END}IT'S A DRAW !!\n");
+	while (i >= 0)
+	{
+		free(game->map[i]);
+		i--;
+	}
+	free(game->map);
+	free(game->p1name);
+	free(game->p2name);
+}
+
+void	free_all(t_info *game)
+{
+	int	i;
+
+	i = 0;
+	while (i < game->mapheight)
+		free(game->map[i++]);
+	free(game->map);
+	free(game->p1name);
+	free(game->p2name);
 }

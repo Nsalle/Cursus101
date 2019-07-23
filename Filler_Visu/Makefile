@@ -6,7 +6,7 @@
 #    By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/07/17 00:24:24 by nsalle       #+#   ##    ##    #+#        #
-#    Updated: 2019/07/17 02:36:58 by nsalle      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/07/23 20:37:44 by nsalle      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -18,7 +18,8 @@ CFLAGS 	+= 	-Wextra -Werror -Wall
 
 SRC 	= 	main.c				\
 			print.c				\
-			print2.c
+			print2.c			\
+			free.c
 		
 OBJ		=	$(SRC:.c=.o)
 

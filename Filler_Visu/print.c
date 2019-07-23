@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/17 01:39:03 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/17 02:34:08 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/23 21:06:17 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -68,5 +68,5 @@ void	visu_print(t_info *game)
 	print_header(game);
 	print_map(game);
 	print_score(game);
-	usleep(50000);
+	my_sleep(game);
 }

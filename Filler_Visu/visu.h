@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/17 00:31:26 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/17 02:42:40 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/07/23 21:06:43 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,6 @@
 # define VISU_H
 
 # include "libft/libft.h"
-# include <unistd.h>
 
 # define ANSI_CLR_SCREEN "\033[H\033[2J"
 # define ANSI_CLR_LINE   "\033[2K"
@@ -31,9 +30,12 @@ typedef	struct	s_info
 	int			p1placed;
 	int			p2placed;
 	char		*line;
+	int			speed;
 }				t_info;
 
 void	visu_print(t_info *game);
 void	print_winner(t_info *game);
+int		my_sleep(t_info *game);
+void	emergency_free(int i, t_info *game);
 
 #endif
