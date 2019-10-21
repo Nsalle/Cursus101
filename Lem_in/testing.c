@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/04 16:28:09 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/08 22:17:50 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/21 19:20:12 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,10 +20,12 @@ void	test(t_lem *lem)
 	ft_printf("La salle de depart est: '%s'\n", lem->start);
 	ft_printf("La salle de fin est   : '%s'\n", lem->end);
 
-	// int i = 0;
-	// while (lem->tabfile[i])
-	// {
-	// 	ft_putendl(lem->tabfile[i]);
-	// 	i++;
-	// }
+	ft_putendl("\n");
+	int i = 0;
+	while (lem->room_matrix[i])
+	{
+		ft_putendl(lem->room_matrix[i]);
+		i++;
+	}
+	ft_putendl("\n");
 }

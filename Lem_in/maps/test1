@@ -1,11 +1,16 @@
 19
-sdalle0 4 5
-salle1 2 47
+salle0 50 150
 ##start
-salle2 1 4
-salle4 88874 1
-salle5 996 547
+salle1 2000 1200
+salle2 15 400
+salle4 1000 500
+salle5 996 590
 ##end
 salle6 87 45
-l1-s1
-l1-s2
+salle7 600 600
+salle8 50 1100
+salle1-salle4
+salle4-salle5
+salle6-salle5
+salle0-salle2
+salle2-salle1
