@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/27 19:05:24 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/21 18:37:46 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/10/29 08:14:00 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,7 +15,14 @@
 # define LEM_IN_H
 
 # include "libft/libft.h"
+# include "sdl2/SDL.h"
 
+typedef struct s_room
+{
+    int        x;
+    int        y;
+
+}              t_room;
 typedef struct		s_rooms
 {
 	char			*name;
@@ -31,6 +38,8 @@ typedef struct		s_lem
 	char			startfound;
 	char			endfound;
 	long long int	nb_ant;
+	int				startindex;
+	int				endindex;
 	int				nb_room;
 	int				curs;
 	int				**room_coords;
@@ -52,6 +61,7 @@ void      			parse_rooms(t_lem *lem);
 
 void				parse_coords(t_lem *lem);
 void				visu_lemin(t_lem *lem);
+void				DrawAllLines(t_lem *lem, SDL_Renderer *renderer, t_room *room);
 
 void				test(t_lem *lem);
 
