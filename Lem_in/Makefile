@@ -6,7 +6,7 @@
 #    By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/07/27 18:49:19 by nsalle       #+#   ##    ##    #+#        #
-#    Updated: 2019/10/29 05:49:28 by nsalle      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/11/04 20:59:27 by nsalle      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -24,7 +24,7 @@ SRC 	= 	src/main.c		  	\
 			src/lem_parse_rooms.c 	\
 			src/lem_parse_coords.c 	\
 			src/visu/visu_lemin.c	\
-			src/visu/draw_lines.c	\
+			src/visu/print.c	\
 
 OBJ		=	$(SRC:.c=.o)
 
