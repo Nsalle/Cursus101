@@ -1,30 +1,15 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   testing.c                                        .::    .:/ .      .::   */
+/*   settings.c                                       .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/04 16:28:09 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/08 20:19:50 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Created: 2019/11/15 00:28:49 by nsalle       #+#   ##    ##    #+#       */
+/*   Updated: 2019/11/15 00:29:05 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
-# include "../lem_in.h"
-
-void	test(t_lem *lem)
-{
-	ft_printf("Nombre de fourmis: %lld\n", lem->nb_ant);
-	ft_printf("Nombre de salles: %d\n", lem->nb_room);
-	ft_printf("La salle de depart est: '%s'\n", lem->start);
-	ft_printf("La salle de fin est   : '%s'\n", lem->end);
-
-	ft_putendl("\n");
-	int i = 0;
-	while (lem->room_matrix[i])
-	{
-		ft_putendl(lem->room_matrix[i]);
-		i++;
-	}
-}
+#include "../../lem_in.h"
+#include "../../sdl2/SDL.h"

@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/29 05:45:09 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/06 22:38:52 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/15 00:19:54 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,7 +14,21 @@
 #include "../../lem_in.h"
 #include "../../sdl2/SDL.h"
 
-#define MIDROOM_SIZE 20
+int		create_ants(t_visulem *vs, t_lem *lem)
+{
+	int	i;
+
+	if (SDL_SetRenderDrawColor(vs->renderer, 220, 0, 0, 255) != 0)
+		ret_msg(1, "error on RenderColor in create_ants()");
+	i = 0;
+	while (i < lem->nb_ant)
+	{
+		if (SDL_RenderFillRect(vs->renderer, &vs->ants[i].pos) != 0)
+			ret_msg(1, "error on RenderFillRect in create_ants()");
+		i++;
+	}
+	return (0);
+}
 
 void	print_all(t_visulem *vs, t_lem *lem)
 {
@@ -36,7 +50,7 @@ void	print_all(t_visulem *vs, t_lem *lem)
         i ++;
 		nbroom--;
     }
-	DrawAllLines(lem, vs->renderer, vs->rooms);
+	DrawAllLines(lem, vs, vs->rooms);
 	SDL_SetRenderDrawColor(vs->renderer, 45, 45, 45, 255);
 	SDL_RenderFillRect(vs->renderer, &vs->endroom);
 	SDL_SetRenderDrawColor(vs->renderer, 160, 160, 160, 255);
@@ -45,7 +59,7 @@ void	print_all(t_visulem *vs, t_lem *lem)
 	SDL_RenderPresent(vs->renderer);
 }
 
-void	Draw_Fatline(SDL_Renderer *renderer, int x1, int y1, int x2, int y2)
+int		Draw_Fatline(SDL_Renderer *renderer, int x1, int y1, int x2, int y2)
 {
 	SDL_RenderDrawLine(renderer, x1 - 1, y1, x2 - 1, y2);
 	SDL_RenderDrawLine(renderer, x1, y1 - 1, x2, y2 - 1);
@@ -53,9 +67,10 @@ void	Draw_Fatline(SDL_Renderer *renderer, int x1, int y1, int x2, int y2)
 	SDL_RenderDrawLine(renderer, x1, y1 + 1, x2, y2 + 1);
 
 	SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
+	return(0);
 }
 
-void	Draw_BigFatline(SDL_Renderer *renderer, int x1, int y1, int x2, int y2)
+int		Draw_BigFatline(SDL_Renderer *renderer, int x1, int y1, int x2, int y2)
 {
 	Draw_Fatline(renderer, x1, y1, x2, y2);
 
@@ -63,9 +78,10 @@ void	Draw_BigFatline(SDL_Renderer *renderer, int x1, int y1, int x2, int y2)
 	SDL_RenderDrawLine(renderer, x1, y1 - 2, x2, y2 - 2);
 	SDL_RenderDrawLine(renderer, x1 + 2, y1, x2 + 2, y2);
 	SDL_RenderDrawLine(renderer, x1, y1 + 2, x2, y2 + 2);
+	return(0);
 }
 
-void	DrawAllLines(t_lem *lem, SDL_Renderer *renderer, t_room *room)
+int		DrawAllLines(t_lem *lem, t_visulem *vs, t_room *room)
 {
 	int matrixi = 0;
 	int matrixj;
@@ -76,12 +92,13 @@ void	DrawAllLines(t_lem *lem, SDL_Renderer *renderer, t_room *room)
 		while (matrixj < lem->nb_room)
 		{
 			if (lem->room_matrix[matrixi][matrixj] == '1')
-				Draw_BigFatline(renderer, room[matrixi].x + MIDROOM_SIZE,
-				room[matrixi].y +MIDROOM_SIZE,
-				room[matrixj].x +MIDROOM_SIZE,
-				room[matrixj].y +MIDROOM_SIZE);
+				Draw_BigFatline(vs->renderer, room[matrixi].x + vs->room_size / 2,
+				room[matrixi].y + vs->room_size / 2,
+				room[matrixj].x + vs->room_size / 2,
+				room[matrixj].y + vs->room_size / 2);
 			matrixj++;
 		}
 		matrixi++;
 	}
+	return (0);
 }

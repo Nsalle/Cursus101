@@ -6,7 +6,7 @@
 #    By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/07/27 18:49:19 by nsalle       #+#   ##    ##    #+#        #
-#    Updated: 2019/11/04 20:59:27 by nsalle      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/11/15 00:29:20 by nsalle      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -16,15 +16,19 @@ NAME	= 	lem-in
 CC 		= 	gcc
 CFLAGS 	+= 	-Wextra -Werror -Wall
 
-SRC 	= 	src/main.c		  	\
-			src/lem_parsing.c 	\
-			src/testing.c     	\
-			src/error.c 	  	\
-			src/parsing_tools.c	\
+SRC 	= 	src/main.c		  		\
+			src/lem_parsing.c 		\
+			src/testing.c     		\
+			src/error.c 	  		\
+			src/parsing_tools.c		\
 			src/lem_parse_rooms.c 	\
 			src/lem_parse_coords.c 	\
 			src/visu/visu_lemin.c	\
-			src/visu/print.c	\
+			src/visu/print.c		\
+			src/visu/free_vs.c		\
+			src/visu/init_items.c	\
+			src/visu/bresenham.c	\
+			src/visu/settings.c
 
 OBJ		=	$(SRC:.c=.o)
 

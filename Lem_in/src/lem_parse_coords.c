@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/21 17:59:15 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/31 20:42:38 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/08 20:20:44 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -80,6 +80,5 @@ void			parse_coords(t_lem *lem)
 		ft_printf("Coords de la case: %d: %d, %d\n", i, lem->room_coords[i][0], lem->room_coords[i][1]);
 		i++;
 	}
-	ft_printf("FQWEF");
 	data_for_window(lem);
 }

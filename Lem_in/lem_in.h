@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/27 19:05:24 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/06 19:54:07 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/15 00:17:02 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,9 +21,9 @@
 typedef struct		s_ant
 {
 	SDL_Rect		pos;
-	SDL_Rect		start;
-	SDL_Rect		target;
 	int				**path;
+	int				nbmoves;
+	int				turn;
 }					t_ant;
 typedef struct		s_room
 {
@@ -56,11 +56,13 @@ typedef struct		s_lem
 	char			**room_matrix;
 	t_rooms			*rooms;
 	t_list			list;
+	int				***turns;
+	int				nb_turn;
 }					t_lem;
 
 typedef	struct		s_visulem
 {
-	unsigned int	room_size;
+	uint8_t			room_size;
 	SDL_Renderer	*renderer;
 	SDL_Texture 	*background;
 	SDL_Rect 		bgrect;
@@ -69,6 +71,7 @@ typedef	struct		s_visulem
 	SDL_Rect		antrect;
 	t_room			*rooms;
 	t_ant			*ants;
+	char			bool_end;
 }					t_visulem;
 
 
@@ -83,9 +86,14 @@ void      			parse_rooms(t_lem *lem);
 
 void				parse_coords(t_lem *lem);
 void				visu_lemin(t_lem *lem);
-void				DrawAllLines(t_lem *lem, SDL_Renderer *renderer, t_room *room);
+int					DrawAllLines(t_lem *lem, t_visulem *vs, t_room *room);
 void				print_all(t_visulem *vs, t_lem *lem);
-void				create_ants(t_visulem *vs, t_lem *lem);
+int					create_ants(t_visulem *vs, t_lem *lem);
+void   				free_path(t_ant ant);
+void				error_init(t_lem *lem, t_visulem *vs, uint8_t ret);
+int    				ret_msg(uint8_t i, char *msg);
+int     			init_items(t_lem *lem, t_visulem *vs);
+int					bresenham(SDL_Rect *rect, int x2, int y2, int **path);
 
 void				test(t_lem *lem);
 
