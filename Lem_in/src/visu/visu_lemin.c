@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/21 16:56:58 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/15 00:29:02 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/15 20:18:58 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -74,8 +74,8 @@ void	allmoves(t_lem *lem, t_visulem *vs)
 			{
 				move_this_ant(lem, vs, &vs->ants[lem->turns[tour][ant][0]], tour, ant);
 				ant++;
-				print_all(vs, lem);
 			}
+			print_all(vs, lem);
 			turn++;
 			my_delay(clock);
 		}
@@ -201,6 +201,11 @@ void	visu_lemin(t_lem *lem)
 					program_launched = SDL_FALSE;
 					break;
 				
+				case SDL_KEYDOWN:
+					settings(event, &vs);
+					print_all(&vs, lem);
+					break;
+
 				case SDL_MOUSEBUTTONDOWN:
 					if (vs.bool_end)
 					{
