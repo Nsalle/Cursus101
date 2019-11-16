@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/27 19:05:24 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/15 20:18:15 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/16 18:27:44 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -87,14 +87,16 @@ void      			parse_rooms(t_lem *lem);
 void				parse_coords(t_lem *lem);
 void				visu_lemin(t_lem *lem);
 int					DrawAllLines(t_lem *lem, t_visulem *vs, t_room *room);
-void				print_all(t_visulem *vs, t_lem *lem);
+int					print_all(t_visulem *vs, t_lem *lem);
 int					create_ants(t_visulem *vs, t_lem *lem);
 void   				free_path(t_ant ant);
 void				error_init(t_lem *lem, t_visulem *vs, uint8_t ret);
 int    				ret_msg(uint8_t i, char *msg);
-int     			init_items(t_lem *lem, t_visulem *vs);
+void     			init_items(t_lem *lem, t_visulem *vs);
 int					bresenham(SDL_Rect *rect, int x2, int y2, int **path);
 void   				settings(SDL_Event event, t_visulem *vs);
+void				change_ant_pos(t_visulem *vs, t_lem *lem);
 void				test(t_lem *lem);
+void				allmoves(t_lem *lem, t_visulem *vs);
 
 #endif

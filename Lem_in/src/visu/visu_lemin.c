@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/21 16:56:58 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/15 20:18:58 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/16 18:26:38 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,82 +14,92 @@
 #include "../../lem_in.h"
 #include "../../sdl2/SDL.h"
 
-void	move_this_ant(t_lem *lem, t_visulem *vs, t_ant *ant, int tour, int numant)
-{
-	if (ant->turn < ant->nbmoves)
-	{
-		ant->pos.x = vs->ants[lem->turns[tour][numant][0]].path[ant->turn][0];
-		ant->pos.y = vs->ants[lem->turns[tour][numant][0]].path[ant->turn][1];
-	}
-	if (ant->turn + ant->nbmoves / 50 >= ant->nbmoves)
-		ant->turn = ant->nbmoves - 1;
-	else
-		ant->turn += ant->nbmoves / 50;
-}
+// void	move_this_ant(t_lem *lem, t_visulem *vs, t_ant *ant, int tour, int numant)
+// {
+// 	if (ant->turn < ant->nbmoves)
+// 	{
+// 		ant->pos.x = vs->ants[lem->turns[tour][numant][0]].path[ant->turn][0];
+// 		ant->pos.y = vs->ants[lem->turns[tour][numant][0]].path[ant->turn][1];
+// 	}
+// 	if (ant->turn + ant->nbmoves / 50 >= ant->nbmoves)
+// 		ant->turn = ant->nbmoves - 1;
+// 	else if (ant->nbmoves / 50 == 0)
+// 		ant->turn++;
+// 	else
+// 		ant->turn += ant->nbmoves / 50;
+// }
 
-void	my_delay(int clock)
-{
-	int	wait;
+// void	my_delay(int clock)
+// {
+// 	int	wait;
 
-	wait = SDL_GetTicks() - clock;
-	if (wait < 33)
-		SDL_Delay(33 - wait);
-}
+// 	wait = SDL_GetTicks() - clock;
+// 	if (wait < 33)
+// 		SDL_Delay(33 - wait);
+// }
 
-void	allmoves(t_lem *lem, t_visulem *vs)
-{
-	int tour = 0;
-	int	ant;
-	int i;
-	int j;
-	int alloc;
-	int turn = 0;
-	int	totalmoves;
+// void	allmoves(t_lem *lem, t_visulem *vs)
+// {
+// 	int tour = 0;
+// 	int	ant;
+// 	int i;
+// 	int j;
+// 	int alloc;
+// 	int turn = 0;
+// 	int	totalmoves;
 
-	int clock;
-	while (tour < lem->nb_turn)
-	{
-		ant = 0;
-		totalmoves = 0;
-		while (lem->turns[tour][ant] != NULL)
-		{
-			i = ft_abs(vs->ants[lem->turns[tour][ant][0]].pos.x - (vs->rooms[lem->turns[tour][ant][1]].x + vs->room_size / 4));
-			j = ft_abs(vs->ants[lem->turns[tour][ant][0]].pos.y - (vs->rooms[lem->turns[tour][ant][1]].y + vs->room_size / 4));
-			if (i > j)
-				alloc = i;
-			else
-				alloc = j;
-			vs->ants[lem->turns[tour][ant][0]].path = (int**)malloc(sizeof(int*) * alloc);
-			vs->ants[lem->turns[tour][ant][0]].nbmoves = bresenham(&vs->ants[lem->turns[tour][ant][0]].pos, vs->rooms[lem->turns[tour][ant][1]].x + vs->room_size / 4, vs->rooms[lem->turns[tour][ant][1]].y + vs->room_size / 4, vs->ants[lem->turns[tour][ant][0]].path);
-			if (vs->ants[lem->turns[tour][ant][0]].nbmoves > totalmoves)
-				totalmoves = vs->ants[lem->turns[tour][ant][0]].nbmoves;
-			ant++;
-		}
-		turn = 0;
-		while (turn <= 60)
-		{
-			clock = SDL_GetTicks();
-			ant = 0;
-			while (lem->turns[tour][ant] != NULL)
-			{
-				move_this_ant(lem, vs, &vs->ants[lem->turns[tour][ant][0]], tour, ant);
-				ant++;
-			}
-			print_all(vs, lem);
-			turn++;
-			my_delay(clock);
-		}
-		ant = 0;
-		while (lem->turns[tour][ant] != NULL)
-		{
-			vs->ants[lem->turns[tour][ant][0]].turn = 0;
-			free_path(vs->ants[lem->turns[tour][ant][0]]);
-			ant++;
-		}
-		tour++;
-	}
-	vs->bool_end = 1;
-}
+// 	int clock;
+// 	while (tour < lem->nb_turn)
+// 	{
+// 		ant = 0;
+// 		totalmoves = 0;
+// 		while (lem->turns[tour][ant] != NULL)
+// 		{
+// 			i = ft_abs(vs->ants[lem->turns[tour][ant][0]].pos.x - (vs->rooms[lem->turns[tour][ant][1]].x + vs->room_size / 4));
+// 			j = ft_abs(vs->ants[lem->turns[tour][ant][0]].pos.y - (vs->rooms[lem->turns[tour][ant][1]].y + vs->room_size / 4));
+// 			if (i > j)
+// 				alloc = i;
+// 			else
+// 				alloc = j;
+// 			if ((vs->ants[lem->turns[tour][ant][0]].path = (int**)malloc(sizeof(int*) * alloc)) == NULL)
+// 				error_init(lem, &vs, 2);
+
+// 			if ((vs->ants[lem->turns[tour][ant][0]].nbmoves = bresenham(&vs->ants[lem->turns[tour][ant][0]].pos,
+// 																	vs->rooms[lem->turns[tour][ant][1]].x + vs->room_size / 4,
+// 																	vs->rooms[lem->turns[tour][ant][1]].y + vs->room_size / 4,
+// 																	vs->ants[lem->turns[tour][ant][0]].path)) == NULL)
+// 				error_init(lem, &vs, 2);
+// 			if (vs->ants[lem->turns[tour][ant][0]].nbmoves > totalmoves)
+// 				totalmoves = vs->ants[lem->turns[tour][ant][0]].nbmoves;
+// 			ant++;
+// 		}
+// 		turn = 0;
+// 		while (turn <= 60)
+// 		{
+// 			clock = SDL_GetTicks();
+// 			ant = 0;
+// 			while (lem->turns[tour][ant] != NULL)
+// 			{
+// 				move_this_ant(lem, vs, &vs->ants[lem->turns[tour][ant][0]], tour, ant);
+// 				ant++;
+// 			}
+// 			if ((print_all(&vs, lem)) != 0)
+// 				error_init(lem, &vs, 2);
+// 			turn++;
+// 			my_delay(clock);
+// 		}
+// 		ant = 0;
+// 		while (lem->turns[tour][ant] != NULL)
+// 		{
+// 			vs->ants[lem->turns[tour][ant][0]].turn = 0;
+// 			free_path(vs->ants[lem->turns[tour][ant][0]]);
+// 			ant++;
+// 		}
+// 		tour++;
+// 	}
+// 	vs->bool_end = 1;
+// 	return (0);
+// }
 
 void	visu_lemin(t_lem *lem)
 {
@@ -109,8 +119,8 @@ void	visu_lemin(t_lem *lem)
     // Rendu de base (fond)
 	int	window_width = lem->biggestxcoord + 100;
 	int	window_height = lem->biggestycoord + 100;
-    SDL_CreateWindowAndRenderer(window_width, window_height, 0, &window, &vs.renderer);
-    
+    if ((SDL_CreateWindowAndRenderer(window_width, window_height, 0, &window, &vs.renderer)) != 0)
+		error_init(lem, &vs, 0);
 	init_items(lem, &vs);
 
 	// Texte pour les Start et End
@@ -202,8 +212,15 @@ void	visu_lemin(t_lem *lem)
 					break;
 				
 				case SDL_KEYDOWN:
+					if (vs.bool_end)
+					{
+						program_launched = SDL_FALSE;
+						break;
+					}
 					settings(event, &vs);
-					print_all(&vs, lem);
+					change_ant_pos(&vs, lem);
+					if ((print_all(&vs, lem)) != 0)
+						error_init(lem, &vs, 2);
 					break;
 
 				case SDL_MOUSEBUTTONDOWN:
@@ -218,7 +235,8 @@ void	visu_lemin(t_lem *lem)
 				default:
 					break;
 			}
-			print_all(&vs, lem);
+			if ((print_all(&vs, lem)) != 0)
+				error_init(lem, &vs, 2);
 		}
 	}
 

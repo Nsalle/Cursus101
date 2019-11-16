@@ -6,7 +6,7 @@
 #    By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/07/27 18:49:19 by nsalle       #+#   ##    ##    #+#        #
-#    Updated: 2019/11/15 00:29:20 by nsalle      ###    #+. /#+    ###.fr      #
+#    Updated: 2019/11/16 18:25:34 by nsalle      ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -28,7 +28,8 @@ SRC 	= 	src/main.c		  		\
 			src/visu/free_vs.c		\
 			src/visu/init_items.c	\
 			src/visu/bresenham.c	\
-			src/visu/settings.c
+			src/visu/settings.c		\
+			src/visu/ant_movement.c	
 
 OBJ		=	$(SRC:.c=.o)
 

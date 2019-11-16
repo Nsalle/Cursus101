@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/08 17:24:17 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/14 22:08:20 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/16 16:17:33 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,7 +29,8 @@ void	error_init(t_lem *lem, t_visulem *vs, uint8_t ret)
 	}
 	free(lem->room_matrix);
 	free(lem->room_coords);
-	free(vs->rooms);
+	if (ret == 1)
+		free(vs->rooms);
 	if (ret > 1)
 	{
 		free(vs->ants);

@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/14 16:41:46 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/15 00:25:21 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/16 16:27:39 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -114,7 +114,7 @@ int		init_ants(t_lem *lem, t_visulem *vs)
 	return (0);
 }
 
-int     init_items(t_lem *lem, t_visulem *vs)
+void     init_items(t_lem *lem, t_visulem *vs)
 {
 	uint8_t	ret;
 
@@ -129,5 +129,4 @@ int     init_items(t_lem *lem, t_visulem *vs)
 		error_init(lem, vs, ret);
 	if ((ret = init_ants(lem, vs)) != 0)
 		error_init(lem, vs, ret);
-    return (0);
 }
