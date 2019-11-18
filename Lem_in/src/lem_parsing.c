@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/08 17:23:20 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 03:48:17 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/18 04:28:44 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,20 +34,14 @@ void	check_com(t_lem *lem)
 		tmp = ft_strdup(lem->tabfile[lem->curs + i]);
 		lem->start = ft_strndup(tmp, ft_strcspn(tmp, " "));
 		ft_strdel(&tmp);
-		lem->startindex = lem->curs + i;
-		lem->curs += i + 1;
-		lem->nb_room++;
-		lem->startfound++;
+		check_com_cut(lem, i, 1);
 	}
 	else if (!(ft_strcmp(lem->tabfile[lem->curs], "##end")))
 	{
 		tmp = ft_strdup(lem->tabfile[lem->curs + i]);
 		lem->end = ft_strndup(tmp, ft_strcspn(tmp, " "));
 		ft_strdel(&tmp);
-		lem->endindex = lem->curs + i;
-		lem->curs += 1 + i;
-		lem->nb_room++;
-		lem->endfound++;
+		check_com_cut(lem, i, 0);
 	}
 	else
 		lem->curs++;

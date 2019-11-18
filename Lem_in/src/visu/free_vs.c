@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/08 17:24:17 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/16 16:17:33 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/18 06:01:38 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,7 +20,6 @@ void	error_init(t_lem *lem, t_visulem *vs, uint8_t ret)
 
 	i = 0;
 	ft_putendl_fd("Program is freeing all allocated memory and will exit", 2);
-	ft_printf("ret = %u\n", ret);
 	while (i < lem->nb_room)
 	{
 		free(lem->room_matrix[i]);

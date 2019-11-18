@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/21 17:59:15 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/08 20:20:44 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/18 04:35:55 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -46,7 +46,11 @@ static	void	get_coords(t_lem *lem, int i, int curs)
 	tab = ft_strsplit(lem->tabfile[curs], ' ');
 	lem->room_coords[i] = (int*)malloc(sizeof(int) * 2);
 	lem->room_coords[i][0] = ft_atoi(tab[1]);
+	if (lem->room_coords[i][0] < 10)
+		lem->room_coords[i][0] *= 100;
 	lem->room_coords[i][1] = ft_atoi(tab[2]);
+	if (lem->room_coords[i][1] < 10)
+		lem->room_coords[i][1] *= 100;
 	destroy_tab(tab);
 }
 
@@ -58,7 +62,7 @@ void			parse_coords(t_lem *lem)
 	lem->room_coords = (int**)malloc(sizeof(int*) * lem->nb_room);
 	curs = 2;
 	i = 1;
-	while(i < lem->nb_room - 1)
+	while (i < lem->nb_room - 1)
 	{
 		while (lem->tabfile[curs][0] == '#')
 			curs++;
@@ -73,12 +77,6 @@ void			parse_coords(t_lem *lem)
 	}
 	get_coords(lem, 0, lem->startindex);
 	get_coords(lem, lem->nb_room - 1, lem->endindex);
-	//
 	i = 0;
-	while (i < lem->nb_room)
-	{
-		ft_printf("Coords de la case: %d: %d, %d\n", i, lem->room_coords[i][0], lem->room_coords[i][1]);
-		i++;
-	}
 	data_for_window(lem);
 }

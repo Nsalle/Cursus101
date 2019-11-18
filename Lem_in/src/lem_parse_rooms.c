@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 22:33:53 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 05:00:28 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/18 04:29:50 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -28,15 +28,9 @@ void	make_roomtab(t_lem *lem)
 		lem->rooms[i].name = ft_strndup(lem->tabfile[curs],
 			ft_strcspn(lem->tabfile[curs], " "));
 		if (!ft_strcmp(lem->rooms[i].name, lem->start))
-		{
-			ft_strdel(&lem->rooms[i].name);
-			i--;
-		}
+			ft_strdel(&lem->rooms[i--].name);
 		else if (!ft_strcmp(lem->rooms[i].name, lem->end))
-		{
-			ft_strdel(&lem->rooms[i].name);
-			i--;
-		}
+			ft_strdel(&lem->rooms[i--].name);
 		i++;
 		curs++;
 	}
@@ -73,7 +67,6 @@ void	fill_matrix(t_lem *lem)
 		ft_strdel(&r2);
 		lem->room_matrix[i][j] = '1';
 		lem->room_matrix[j][i] = '1';
-		//ft_printf("\ni = %d j = %d\n", i, j);
 		lem->curs++;
 	}
 }
@@ -105,5 +98,4 @@ void	parse_rooms(t_lem *lem)
 	make_roomtab(lem);
 	init_matrix(lem);
 	fill_matrix(lem);
-	//ft_printf("\nCURS = %s\n", lem->tabfile[lem->curs]);
 }

@@ -6,12 +6,28 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 20:57:16 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/29 03:44:57 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/18 04:31:22 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "../lem_in.h"
+
+void	check_com_cut(t_lem *lem, int i, char start)
+{
+	if (start)
+	{
+		lem->startindex = lem->curs + i;
+		lem->startfound++;
+	}
+	else
+	{
+		lem->endindex = lem->curs + i;
+		lem->endfound++;
+	}
+	lem->curs += 1 + i;
+	lem->nb_room++;
+}
 
 char	*clean_join(char *s1, char *s2)
 {
