@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/21 16:56:58 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/18 06:03:55 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/20 16:46:52 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -148,6 +148,7 @@ void	visu_lemin(t_lem *lem)
 						program_launched = SDL_FALSE;
 						break;
 					}
+					ft_printf("WAAT\n");
 					allmoves(lem, &vs);
 					break;
 

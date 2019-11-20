@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/03/27 00:32:57 by jde-la-m     #+#   ##    ##    #+#       */
-/*   Updated: 2019/07/11 20:04:07 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/20 11:24:36 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,8 +37,8 @@ typedef struct		s_list
 **	Function prototypes
 */
 
-int					ft_abs(int n);
-int					ft_atoi(const char *str);
+long long int		ft_abs(long long int n);
+long long int		ft_atoi(const char *str);
 long				ft_atol(const char *str);
 long long			ft_atoll(const char *str);
 void				ft_bzero(void *s, size_t n);

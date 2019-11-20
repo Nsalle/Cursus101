@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/27 19:05:24 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/18 04:26:30 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/20 11:56:38 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -84,6 +84,10 @@ char				*file_to_line(void);
 
 void      			parse_rooms(t_lem *lem);
 
+void				check_dupe_roomname(t_lem *lem);
+void				check_com_cut(t_lem *lem, int i, char start);
+void				check_roomerrors(t_lem *lem);
+
 void				parse_coords(t_lem *lem);
 void				visu_lemin(t_lem *lem);
 int					DrawAllLines(t_lem *lem, t_visulem *vs, t_room *room);
@@ -98,6 +102,6 @@ void   				settings(SDL_Event event, t_visulem *vs);
 void				change_ant_pos(t_visulem *vs, t_lem *lem);
 void				test(t_lem *lem);
 void				allmoves(t_lem *lem, t_visulem *vs);
-void				check_com_cut(t_lem *lem, int i, char start);
+
 
 #endif

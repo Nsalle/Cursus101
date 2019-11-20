@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/07/27 19:02:01 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/17 18:40:31 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/20 12:22:27 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -49,6 +49,12 @@ int		main(int argc, char **argv)
 	if (!bool_visu)
 		free_tabfile(&lemin);
 	// L'appel a l'algo se placera ici
+	int i = 0;
+	while (i < lemin.nb_room)
+	{
+		ft_printf("%s\n", lemin.rooms[i].name);
+		i++;
+	}
 	if (bool_visu)
 	{
 		parse_coords(&lemin);

@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/14 16:41:46 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/16 16:27:39 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/20 16:45:11 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -129,4 +129,5 @@ void     init_items(t_lem *lem, t_visulem *vs)
 		error_init(lem, vs, ret);
 	if ((ret = init_ants(lem, vs)) != 0)
 		error_init(lem, vs, ret);
+	//ft_printf("WAAAT\n");
 }

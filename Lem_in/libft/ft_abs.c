@@ -3,10 +3,10 @@
 /*                                                              /             */
 /*   ft_abs.c                                         .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: jde-la-m <jde-la-m@student.le-101.fr>      +:+   +:    +:    +:+     */
+/*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2018/10/03 13:43:05 by jde-la-m     #+#   ##    ##    #+#       */
-/*   Updated: 2018/10/03 14:01:15 by jde-la-m    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/20 11:23:49 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,7 +18,7 @@
 
 #include "libft.h"
 
-int	ft_abs(int n)
+long long int	ft_abs(long long int n)
 {
 	return ((n < 0) ? -n : n);
 }

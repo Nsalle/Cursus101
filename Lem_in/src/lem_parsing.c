@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/08/08 17:23:20 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/18 04:28:44 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/20 12:20:01 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -49,7 +49,12 @@ void	check_com(t_lem *lem)
 
 void	get_nb_ants(t_lem *lem)
 {
-	lem->nb_ant = ft_atoi(lem->tabfile[1]);
+	int	i;
+
+	i = 0;
+	while (lem->tabfile[i][0] == '#')
+		i++;
+	lem->nb_ant = ft_atoi(lem->tabfile[i]);
 	if (lem->nb_ant < 1 || lem->nb_ant > 2147483647)
 	{
 		ft_putstr_fd("Wrong number of ants, set : [1 to 2147483647]\n", 2);
@@ -71,7 +76,6 @@ void	get_nb_rooms(t_lem *lem)
 			lem->curs++;
 		}
 	}
-	ft_printf("NBROOMS %d\n", lem->nb_room);
 	if (lem->nb_room == 0 || lem->startfound != 1 || lem->endfound != 1)
 	{
 		if (lem->start)
@@ -89,7 +93,8 @@ void	lem_parsing(t_lem *lem)
 
 	lem->curs = 2;
 	linefile = file_to_line();
-	lem->tabfile = ft_strsplit(linefile, '\n');
+	if (!(lem->tabfile = ft_strsplit(linefile, '\n')))
+		exit(0);
 	get_nb_ants(lem);
 	get_nb_rooms(lem);
 	ft_strdel(&linefile);

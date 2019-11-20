@@ -6,7 +6,7 @@
 /*   By: nsalle <nsalle@student.le-101.fr>          +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/10 22:33:53 by nsalle       #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/18 04:29:50 by nsalle      ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/11/19 19:07:27 by nsalle      ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -58,6 +58,10 @@ void	fill_matrix(t_lem *lem)
 	{
 		i = 0;
 		j = 0;
+		while (lem->tabfile[lem->curs] && lem->tabfile[lem->curs][0] == '#')
+			lem->curs++;
+		if (!(lem->tabfile[lem->curs]))
+			break;
 		get_room_names(&r1, &r2, lem->tabfile[lem->curs]);
 		while (ft_strcmp(r1, lem->rooms[i].name))
 			i++;
@@ -96,6 +100,7 @@ void	init_matrix(t_lem *lem)
 void	parse_rooms(t_lem *lem)
 {
 	make_roomtab(lem);
+	check_roomerrors(lem);
 	init_matrix(lem);
 	fill_matrix(lem);
 }
